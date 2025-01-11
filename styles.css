@@ -197,19 +197,31 @@ button:hover {
     margin-top: 5px;
 }
 
+/* Star Rating Styling */
 .stars {
-    font-size: 30px; /* Make stars bigger */
+    font-size: 30px;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
 }
 
+/* Default star color */
 .stars span {
     color: gray;
     transition: color 0.3s ease-in-out;
+    position: relative;
 }
 
-.stars span.active {
-    color: gold; /* Only selected stars turn yellow */
+/* Keep selected stars highlighted */
+.stars span.hovered,
+.stars span.selected {
+    color: gold;
 }
+
+
+
+
 
 /* Flex container for buttons and rating */
 .recipe-info {

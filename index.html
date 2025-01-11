@@ -194,21 +194,25 @@
 
     <!-- JavaScript Modals -->
 
-    <!--Rating Modal-->
-    <div id="ratingModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeRatingModal()">&times;</span>
-            <h3>Rate this Recipe</h3>
-            <div class="stars">
-                <span onclick="rateRecipe(1)">★</span>
-                <span onclick="rateRecipe(2)">★</span>
-                <span onclick="rateRecipe(3)">★</span>
-                <span onclick="rateRecipe(4)">★</span>
-                <span onclick="rateRecipe(5)">★</span>
-            </div>
-            <p id="ratingMessage"></p>
+    <!-- Rating Modal -->
+<!-- Rating Modal -->
+<!-- Rating Modal -->
+<div id="ratingModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeRatingModal()">&times;</span>
+        <h3>Rate this Recipe</h3>
+        <div class="stars">
+            <span data-value="1">★</span>
+            <span data-value="2">★</span>
+            <span data-value="3">★</span>
+            <span data-value="4">★</span>
+            <span data-value="5">★</span>
         </div>
+        <p id="ratingMessage"></p>
     </div>
+</div>
+
+
 
         <!-- Share Modal -->
     <div id="shareModal" class="modal">

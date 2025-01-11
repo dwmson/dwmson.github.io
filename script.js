@@ -27,6 +27,12 @@ function copyShareLink() {
 }
 
 
+// Declare 'ratings' globally only once
+let ratings = JSON.parse(localStorage.getItem("recipeRatings")) || [];
+let selectedRating = 0; // Store the selected rating
+
+updateAverageRating(); // Ensure the rating updates on page load
+
 // Open Rating Modal
 function openRatingModal() {
     document.getElementById("ratingModal").style.display = "flex";
@@ -37,32 +43,86 @@ function closeRatingModal() {
     document.getElementById("ratingModal").style.display = "none";
 }
 
-// Store Ratings in Local Storage
-let ratings = JSON.parse(localStorage.getItem("recipeRatings")) || [];
-updateAverageRating();
+// Select all stars
+const stars = document.querySelectorAll(".stars span");
 
-// Rate Recipe Function
-function rateRecipe(stars) {
-    ratings.push(stars);
+// Light up stars progressively on hover (Left to Right) via JS
+stars.forEach((star, index) => {
+
+    // HOVER IN
+    star.addEventListener("mouseover", () => {
+        highlightStars(index); 
+        // highlightStars(index) = highlight from leftmost star up to 'index'
+    });
+
+    // HOVER OUT
+    star.addEventListener("mouseout", () => {
+        if (selectedRating === 0) {
+            resetStars(); // Reset only if no selection has been made
+        }
+    });
+
+    // CLICK = select rating
+    star.addEventListener("click", () => {
+        // Instead of index + 1, read the star's data-value
+        selectedRating = parseInt(star.dataset.value, 10);
+        
+        rateRecipe(selectedRating);
+        updateSelectedStars();
+    });
+});
+
+// Highlight stars from 0 to 'index' on hover
+function highlightStars(index) {
+    resetStars();
+    for (let i = 0; i <= index; i++) {
+        stars[i].classList.add("hovered");
+    }
+}
+
+// Remove all hover/selected classes
+function resetStars() {
+    stars.forEach(star => {
+        star.classList.remove("hovered", "selected");
+    });
+    updateSelectedStars(); // Re-apply the selected stars
+}
+
+// Keep selected stars highlighted after click
+function updateSelectedStars() {
+    for (let i = 0; i < selectedRating; i++) {
+        stars[i].classList.add("selected");
+    }
+}
+
+// Store & update ratings in localStorage, and UI
+function rateRecipe(starsCount) {
+    ratings.push(starsCount);
     localStorage.setItem("recipeRatings", JSON.stringify(ratings));
-    
-    document.getElementById("ratingMessage").innerText = `You rated this recipe ${stars} stars! ⭐`;
-    
+
+    document.getElementById("ratingMessage").innerText = 
+        `You rated this recipe ${starsCount} stars! ⭐`;
+
     updateAverageRating();
 }
 
-// Update Average Rating
+// Calculate and display average rating
 function updateAverageRating() {
     if (ratings.length === 0) return;
 
     let sum = ratings.reduce((total, num) => total + num, 0);
-    let average = (sum / ratings.length).toFixed(1); // Round to 1 decimal place
+    let average = (sum / ratings.length).toFixed(1);
 
     document.getElementById("average-rating").innerText = average;
     document.getElementById("rating-count").innerText = ratings.length;
 
     // Update Star Display
-    let stars = "★★★★★☆☆☆☆☆".substring(5 - Math.round(average), 10 - Math.round(average));
-    document.getElementById("display-stars").innerText = stars;
+    let starsDisplay = "★★★★★☆☆☆☆☆".substring(
+      5 - Math.round(average), 
+      10 - Math.round(average)
+    );
+    document.getElementById("display-stars").innerText = starsDisplay;
 }
+
+
 
