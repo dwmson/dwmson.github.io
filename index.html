@@ -1,11 +1,11 @@
 <!--
-    Module 5 Portfolio Milestone
+    Module 8 Portfolio Project
 
     David Williamson
     Colorado State University Global
     ITS335 Human Computer Interaction
     Dr. Alkhatib
-    December 15, 2024
+    January 12, 2025
 -->
 
 <!DOCTYPE html>
@@ -18,12 +18,13 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
     <!-- Header Section -->
     <header>
         <nav>
             <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About the Recipe</a></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
                 <li><a href="#ingredients">Ingredients</a></li>
                 <li><a href="#instructions">Instructions</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -31,24 +32,61 @@
         </nav>
     </header>
 
+    <!-- Hero Image Section -->
+    <section class="hero">
+        <div class="hero-text">Kässpatzen: A Taste of German Tradition</div>
+    </section>
+
     <!-- Home Section -->
     <section id="home">
         <div class="container">
-            <h1>Welcome to a Personal Favorite Recipe: Kässpatzen</h1>
+            <h1>Welcome to a Personal Favorite: Kässpatzen</h1>
             <p>A comforting dish from Bavaria, Austria, and Switzerland that brings rich flavors and a connection to tradition.</p>
+    
+            <!-- Flexbox Wrapper for Buttons & Rating -->
+            <div class="recipe-info">
+                <div class="recipe-buttons">
+                    <button onclick="jumpToRecipe()">Jump to Recipe</button>
+                    <button onclick="openShareModal()">Share</button>
+                    <button onclick="openRatingModal()">Rate Recipe</button>
+                </div>
+    
+                <div class="rating-display">
+                    <span id="average-rating">0</span> / 5
+                    <div class="display-stars" id="display-stars">
+                        ☆☆☆☆☆
+                    </div>
+                    <p><span id="rating-count">0</span> Ratings</p>
+                </div>
+            </div>
         </div>
     </section>
+    
 
     <!-- About Section -->
     <section id="about">
         <div class="container">
             <h2>About the Recipe</h2>
             <p>
-                Kässpatzen, or “cheese spaetzle”, is a traditional comfort dish enjoyed in Bavaria, Germany, Austria, and Switzerland. 
-                This dish layers soft, homemade pasta (spaetzle) with melted Emmentaler (or similar) cheese, topped with crispy onions. Often described as 
-                the German version of macaroni and cheese, Kässpatzen represents hospitality and warmth. For me, it connects to my ancestral roots 
-                in Germany and Austria, serving as a comforting reminder of the region's rich culinary heritage and traditions.
+                Kässpatzen, or “cheese spaetzle,” is a traditional comfort dish enjoyed in Bavaria, Germany, Austria, and Switzerland. 
+                This dish layers soft, homemade pasta (spaetzle) with melted Emmentaler (or similar) cheese, topped with crispy onions.
             </p>
+        </div>
+    </section>
+
+    <!-- How to Make Spaetzle Section -->
+    <section id="spaetzle">
+        <div class="container">
+            <h2>How to Make Spaetzle from Scratch</h2>
+            <p>
+                Making spaetzle from scratch is simple and requires just a few basic ingredients: flour, eggs, milk, and salt. 
+                The batter is mixed until smooth and slightly stretchy, then pressed through a <strong>Spätzlehobel</strong>—a traditional 
+                spaetzle maker that resembles a grater—directly into a pot of boiling salted water. As the small dumpling-like noodles 
+                cook, they rise to the surface, signaling that they are ready to be scooped out. Once drained, the spaetzle can be tossed 
+                in butter for extra flavor before being layered with cheese to make Kässpatzen. If you do not have a Spätzlehobel, a colander 
+                with large holes or a potato ricer can be used as an alternative.
+            </p>
+            <img src="assets/images/IMG_4270.jpg" alt="A Spaetzlehobel being used to make fresh spaetzle" class="step-img" loading="lazy">
         </div>
     </section>
 
@@ -56,15 +94,44 @@
     <section id="ingredients">
         <div class="container">
             <h2>Ingredients</h2>
+            <img src="assets/images/IMG_4268.jpg" alt="Ingredients" class="step-img" loading="lazy">
             <ul>
-                <li>2 cups all-purpose flour</li>
-                <li>4 large eggs</li>
-                <li>1/3 cup milk (slightly more if needed)</li>
-                <li>1 tsp salt</li>
-                <li>1 1/2 cups grated Emmentaler (or similar, e.g. Jarlsberg) cheese</li>
-                <li>1 large onion, thinly sliced</li>
-                <li>2 tbsp butter</li>
-                <li>Fresh parsley or chives for garnish</li>
+                <li>
+                    <input type="checkbox" id="ingredient_1">
+                    <label for="ingredient_1">4 large eggs</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="ingredient_2">
+                    <label for="ingredient_2">1 1/2 cups grated Emmentaler cheese</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="ingredient_3">
+                    <label for="ingredient_3">1 large onion, thinly sliced</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="ingredient_4">
+                    <label for="ingredient_4">Fresh parsley or chives for garnish</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="ingredient_5">
+                    <label for="ingredient_5">2 tbsp butter</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="ingredient_6">
+                    <label for="ingredient_6">2 cups all-purpose flour</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="ingredient_7">
+                    <label for="ingredient_7">1/3 cup milk</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="ingredient_8">
+                    <label for="ingredient_8">1 tsp salt</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="ingredient_9">
+                    <label for="ingredient_9">Cracked black pepper, to taste</label>
+                </li>
             </ul>
         </div>
     </section>
@@ -73,31 +140,89 @@
     <section id="instructions">
         <div class="container">
             <h2>Instructions</h2>
-            <ol>
-                <li>In a bowl, mix the flour, eggs, milk, and salt to create a smooth batter, similar to pancake batter.</li>
-                <li>Bring a large pot of salted water to a boil on high heat. Place a spaetzle maker or a colander with large holes over the pot and press the batter into the water.</li>
-                <li>Cook the spaetzle until they float to the surface, then remove them with a slotted spoon and place them in a large bowl and toss with butter and ground black pepper to taste.</li>
-                <li>In a skillet, melt the butter and sauté the sliced onions until golden and crispy. Set aside.</li>
-                <li>Layer the cooked spaetzle with the grated cheese in an oven safe dish or pan. Bake at 350°F (175°C) for 10 minutes, or until the cheese is melted.</li>
-                <li>Top with crispy onions and garnish with fresh parsley or chives. Serve warm and enjoy!</li>
-                <li><strong>Tip!</strong> Top with diced bacon for an extra layer of flavor!</li>
-            </ol>
+                <h3>Step 1</h3>
+                <p>Mix the flour, eggs, milk, and salt into a smooth batter.</p>
+                <img src="assets/images/IMG_4269.jpg" alt="Mixing batter for spaetzle" class="step-img" loading="lazy">
+
+                <h3>Step 2</h3>
+                <p>Bring salted water to a boil and press the batter through a spaetzle maker into the boiling water.</p>
+                <img src="assets/images/IMG_4271.jpg" alt="Boiling spaetzle noodles" class="step-img" loading="lazy">
+
+                <h3>Step 3</h3>
+                <p>Remove the cooked spaetzle noodles and drain in a colander</p>
+                <img src="assets/images/IMG_4272.jpg" alt="Cooked spaetzle noodles" class="step-img" loading="lazy">
+                <img src="assets/images/IMG_4273.jpg" alt="Drained spaetzle noodles" class="step-img" loading="lazy">
+            
+                <h3>Step 4</h3>
+                <p>In an oven-safe dish or pan, toss the spaetzle noodles with butter and black pepper</p>
+                <img src="assets/images/IMG_4274.jpg" alt="Melting butter in a skillet" class="step-img" loading="lazy">
+                <img src="assets/images/IMG_4275.jpg" alt="Tossed spaetzle noodles with butter and pepper in skillet" class="step-img" loading="lazy">
+
+                <h3>Step 5</h3>
+                <p>Grate the cheese and add to the spaetzle noodles on top or layered throughout the noodles</p>
+                <img src="assets/images/IMG_4276.jpg" alt="Spaetzle noodles topped with cheese" class="step-img" loading="lazy">
+
+                <h3>Step 6</h3>
+                <p>Bake at 350°F (175°C) for around 10 - 15 minutes or until the cheese is melted</p>
+                <img src="assets/images/IMG_4277.jpg" alt="Melted cheese on top of spaetzle noodles" class="step-img" loading="lazy">
+
+                <h3>Step 7</h3>
+                <p>Sauté the onions in butter until light golden (or cripsy for extra flavor!)</p>
+                <img src="assets/images/IMG_4281.jpg" alt="Sautéd onions" class="step-img" loading="lazy">
+
+                <h3>Step 8</h3>
+                <p>Top with crispy onions and fresh herbs. Serve warm!</p>
+                <img src="assets/images/IMG_4286.jpg" alt="Finished Kässpatzen garnished with chives" class="step-img" loading="lazy">
+
+                ✨ <strong>Pro Tip:</strong> Top with crispy bacon bits for extra flavor!
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact">
         <div class="container">
             <h2>Contact</h2>
-            <p>For any questions about the recipe or this university assignment, feel free to reach out:</p>
-            <p>Email: <a href="david.williamson1@csuglobal.edu">david.williamson1@csuglobal.edu</a></p>
+            <p>For any questions about this recipe, or this university assignment, feel free to reach out: <a href="david.williamson1@csuglobal.edu">david.williamson1@csuglobal.edu</a>
+            </p>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2024 David Williamson. All rights reserved.</p>
-        <p>Created for: ITS335 Human Computer Interaction, Module 5 Portfolio Milestone - Colorado State University Global</p>
+        <p>&copy; 2025 David Williamson. All rights reserved.</p>
+        <p>Created for: ITS335 Human Computer Interaction, Module 8 Portfolio Project - Colorado State University Global</p>
     </footer>
+
+    <!-- JavaScript Modals -->
+
+    <!--Rating Modal-->
+    <div id="ratingModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeRatingModal()">&times;</span>
+            <h3>Rate this Recipe</h3>
+            <div class="stars">
+                <span onclick="rateRecipe(1)">★</span>
+                <span onclick="rateRecipe(2)">★</span>
+                <span onclick="rateRecipe(3)">★</span>
+                <span onclick="rateRecipe(4)">★</span>
+                <span onclick="rateRecipe(5)">★</span>
+            </div>
+            <p id="ratingMessage"></p>
+        </div>
+    </div>
+
+        <!-- Share Modal -->
+    <div id="shareModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeShareModal()">&times;</span>
+            <h3>Share this Recipe</h3>
+            <p>Copy the link below and share it with your friends!</p>
+            <input type="text" id="shareLink" readonly>
+            <button onclick="copyShareLink()">Copy Link</button>
+            <p id="copyMessage"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
 </body>
 </html>
