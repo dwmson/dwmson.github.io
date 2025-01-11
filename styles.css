@@ -7,27 +7,22 @@
 }
 
 body {
-    background-color: #EAEDEB; /* Soft Olive Beige */
-    color: #2F3E46; /* Dark Charcoal */
+    background-color: #EAEDEB; 
+    color: #2F3E46; 
     line-height: 1.6;
 }
 
-/* Sticky Navigation */
 header {
-    background: #6A786A; /* Muted Olive Green */
+    background: #6A786A; 
     padding: 15px 0;
     width: 100%;
-    position: fixed; /* Keeps the navbar at the top */
+    position: fixed; 
     top: 0;
     left: 0;
-    z-index: 1000; /* Ensures it stays above other content */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+    z-index: 1000; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
-/* Adds padding to prevent content from being hidden under fixed header */
-
-
-/* Fix Section Header Overlapping with Sticky Navbar */
 /* Navbar Styling */
 nav ul {
     display: flex;
@@ -41,13 +36,13 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: #DDE5B6; /* Light Olive Beige */
+    color: #DDE5B6; 
     font-weight: bold;
     transition: color 0.3s;
 }
 
 nav ul li a:hover {
-    color: white; /* Warm Golden Sand */
+    color: white; 
 }
 
 
@@ -70,7 +65,7 @@ nav ul li a:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Muted Olive Green overlay */
+    background: rgba(0, 0, 0, 0.5); 
 }
 
 .hero-text {
@@ -94,12 +89,12 @@ nav ul li a:hover {
 
 section {
     margin-bottom: 40px;
-    scroll-margin-top: 60px; /* Adjust based on your navbar height */
+    scroll-margin-top: 60px; 
 }
 
 h1, h2 {
     font-weight: 700;
-    color: #6A786A; /* Muted Olive Green */
+    color: #6A786A; 
     margin-bottom: 20px;
 }
 
@@ -137,7 +132,7 @@ input[type="checkbox"]:checked + label {
 
 /* Buttons */
 button {
-    background-color: white; /* Warm Golden Sand */
+    background-color: white; 
     border: 1px solid #6A786A;;
     padding: 10px 20px;
     font-size: 18px;
@@ -148,7 +143,7 @@ button {
 }
 
 button:hover {
-    background-color: #8B7763; /* Deeper brown */
+    background-color: #8B7763; 
     color:white
 }
 
@@ -172,7 +167,7 @@ button:hover {
     border-radius: 8px;
     text-align: center;
     max-width: 450px;
-    width: 80%; /* Responsive width */
+    width: 80%; 
 }
 
 .close {
@@ -219,17 +214,13 @@ button:hover {
     color: gold;
 }
 
-
-
-
-
 /* Flex container for buttons and rating */
 .recipe-info {
     display: flex;
-    justify-content: space-between; /* Spread items evenly */
-    align-items: center; /* Align items in the center */
-    flex-wrap: wrap; /* Ensures it stays responsive */
-    gap: 20px; /* Adds space between items */
+    justify-content: space-between; 
+    align-items: center; 
+    flex-wrap: wrap; 
+    gap: 20px; 
     margin-top: 20px;
 }
 
@@ -241,8 +232,8 @@ button:hover {
 
 /* Rating Display */
 .rating-display {
-    font-size: 14px; /* Smaller text */
-    color: #6A786A; /* Muted Olive Green */
+    font-size: 14px; 
+    color: #6A786A; 
     display: flex;
     align-items: center;
     gap: 5px;
@@ -263,18 +254,17 @@ button:hover {
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .recipe-info {
-        flex-direction: column; /* Stack items on smaller screens */
+        flex-direction: column; 
         align-items: center;
         gap: 15px;
     }
 }
 
-
 /* Footer */
 footer {
     text-align: center;
     padding: 15px 0;
-    background: #6A786A; /* Muted Olive Green */
+    background: #6A786A; 
     color: white;
     margin-top: 40px;
 }

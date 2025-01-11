@@ -1,4 +1,4 @@
-// Smooth scroll to the recipe section
+// Scroll to the ingredients section
 function jumpToRecipe() {
     document.getElementById("ingredients").scrollIntoView({ behavior: "smooth" });
 }
@@ -31,7 +31,7 @@ function copyShareLink() {
 let ratings = JSON.parse(localStorage.getItem("recipeRatings")) || [];
 let selectedRating = 0; // Store the selected rating
 
-updateAverageRating(); // Ensure the rating updates on page load
+updateAverageRating(); // Rating updates on page load
 
 // Open Rating Modal
 function openRatingModal() {
@@ -46,7 +46,7 @@ function closeRatingModal() {
 // Select all stars
 const stars = document.querySelectorAll(".stars span");
 
-// Light up stars progressively on hover (Left to Right) via JS
+// Light up stars progressively on hover (Left to Right)
 stars.forEach((star, index) => {
 
     // HOVER IN
@@ -64,7 +64,7 @@ stars.forEach((star, index) => {
 
     // CLICK = select rating
     star.addEventListener("click", () => {
-        // Instead of index + 1, read the star's data-value
+        // Read the star's data-value
         selectedRating = parseInt(star.dataset.value, 10);
         
         rateRecipe(selectedRating);
